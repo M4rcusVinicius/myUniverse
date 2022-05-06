@@ -34,6 +34,26 @@ function Home() {
               <th>ID</th>
               <td>{user.id}</td>
             </tr>
+            <tr>
+              <th>Genero</th>
+              <td>{user.gender}</td>
+            </tr>
+            <tr>
+              <th>Nacionalidade</th>
+              <td>{user.birth}</td>
+            </tr>
+            <tr>
+              <th>Sobre</th>
+              <td>{user.about}</td>
+            </tr>
+            <tr>
+              <th>Hobbies</th>
+              <td>{user.hobbies}</td>
+            </tr>
+            <tr>
+              <th>Citação</th>
+              <td>{user.quote}</td>
+            </tr>
           </tbody>
         </table>
         <p>

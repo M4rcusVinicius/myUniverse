@@ -7,5 +7,19 @@
         "id": 1,
         "dateCreated": "2022-05-06T19:35:29.009Z",
         "dateUpdated": "2022-05-06T19:35:29.009Z"
+    },
+    {
+        "name": "Marcus Vinicus Almeida Pires",
+        "curse": "Engenharia do controle e Automação",
+        "username": "123",
+        "gender": "Masculino",
+        "birth": "Brasil",
+        "about": "Um cara legal, mais 1% é vagabundo",
+        "hobbies": "BEBER ÁGUA",
+        "quote": "União flasco",
+        "hash": "$2a$10$7ve4ljBKIxat8D4C5WxM1.H7dD.TGEJm9NcaLE2AqJl6zKF7nYXK2",
+        "id": 2,
+        "dateCreated": "2022-05-06T20:52:58.772Z",
+        "dateUpdated": "2022-05-06T20:52:58.772Z"
     }
 ]

@@ -16,7 +16,7 @@ function authenticate(req, res) {
 
     // validate
     if (!(user && bcrypt.compareSync(password, user.hash))) {
-        throw 'Username or password is incorrect';
+        throw 'Número de usuário ou senha incorretos';
     }
 
     // create a jwt token that is valid for 7 days
@@ -28,6 +28,11 @@ function authenticate(req, res) {
         username: user.username,
         name: user.name,
         curse: user.curse,
+        gender: user.gender,
+        birth: user.birth,
+        about: user.about,
+        hobbies: user.hobbies,
+        quote: user.quote,
         token
     });
 }
