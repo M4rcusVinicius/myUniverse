@@ -39,8 +39,8 @@ function Index() {
                 <tbody>
                     {users && users.map(user =>
                         <tr key={user.id}>
-                            <td>{user.firstName}</td>
-                            <td>{user.lastName}</td>
+                            <td>{user.name}</td>
+                            <td>{user.curse}</td>
                             <td>{user.username}</td>
                             <td style={{ whiteSpace: 'nowrap' }}>
                                 <Link href={`/users/edit/${user.id}`} className="btn btn-sm btn-primary mr-1">Edit</Link>

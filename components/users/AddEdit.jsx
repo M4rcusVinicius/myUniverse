@@ -15,16 +15,16 @@ function AddEdit(props) {
     
     // form validation rules 
     const validationSchema = Yup.object().shape({
-        firstName: Yup.string()
-            .required('First Name is required'),
-        lastName: Yup.string()
-            .required('Last Name is required'),
+        name: Yup.string()
+            .required('Informe o nome'),
+        curse: Yup.string()
+            .required('Informe o curso'),
         username: Yup.string()
-            .required('Username is required'),
+            .required('Informe o número de matrícula'),
         password: Yup.string()
             .transform(x => x === '' ? undefined : x)
-            .concat(isAddMode ? Yup.string().required('Password is required') : null)
-            .min(6, 'Password must be at least 6 characters')
+            .concat(isAddMode ? Yup.string().required('A senha é obrigatória') : null)
+            .min(6, 'A senha deve tr mais de 6 caracteres')
     });
     const formOptions = { resolver: yupResolver(validationSchema) };
 
@@ -46,7 +46,7 @@ function AddEdit(props) {
     function createUser(data) {
         return userService.register(data)
             .then(() => {
-                alertService.success('User added', { keepAfterRouteChange: true });
+                alertService.success('Usuário adicionado', { keepAfterRouteChange: true });
                 router.push('.');
             })
             .catch(alertService.error);
@@ -55,7 +55,7 @@ function AddEdit(props) {
     function updateUser(id, data) {
         return userService.update(id, data)
             .then(() => {
-                alertService.success('User updated', { keepAfterRouteChange: true });
+                alertService.success('Usuário atualizado', { keepAfterRouteChange: true });
                 router.push('..');
             })
             .catch(alertService.error);
@@ -65,26 +65,26 @@ function AddEdit(props) {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-row">
                 <div className="form-group col">
-                    <label>First Name</label>
-                    <input name="firstName" type="text" {...register('firstName')} className={`form-control ${errors.firstName ? 'is-invalid' : ''}`} />
-                    <div className="invalid-feedback">{errors.firstName?.message}</div>
+                    <label>Nome</label>
+                    <input name="name" type="text" {...register('name')} className={`form-control ${errors.name ? 'is-invalid' : ''}`} />
+                    <div className="invalid-feedback">{errors.name?.message}</div>
                 </div>
                 <div className="form-group col">
-                    <label>Last Name</label>
-                    <input name="lastName" type="text" {...register('lastName')} className={`form-control ${errors.lastName ? 'is-invalid' : ''}`} />
-                    <div className="invalid-feedback">{errors.lastName?.message}</div>
+                    <label>Curso</label>
+                    <input name="curse" type="text" {...register('curse')} className={`form-control ${errors.curse ? 'is-invalid' : ''}`} />
+                    <div className="invalid-feedback">{errors.curse?.message}</div>
                 </div>
             </div>
             <div className="form-row">
                 <div className="form-group col">
-                    <label>Username</label>
+                    <label>Número de matrícula</label>
                     <input name="username" type="text" {...register('username')} className={`form-control ${errors.username ? 'is-invalid' : ''}`} />
                     <div className="invalid-feedback">{errors.email?.message}</div>
                 </div>
                 <div className="form-group col">
                     <label>
-                        Password
-                        {!isAddMode && <em className="ml-1">(Leave blank to keep the same password)</em>}
+                        Senha
+                        {!isAddMode && <em className="ml-1">(Deixe em branco para não alterar a senha)</em>}
                     </label>
                     <input name="password" type="password" {...register('password')} className={`form-control ${errors.password ? 'is-invalid' : ''}`} />
                     <div className="invalid-feedback">{errors.password?.message}</div>
